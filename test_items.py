@@ -46,8 +46,9 @@ def test_add_to_basket_button_is_present(browser, language):
         "fr": "Ajouter au panier",
         "pt": "Adicionar ao carrinho",
         "it": "Aggiungi al carrello",
-    }.get(language, "Unknown")
+    }.get(language, f"Add to basket ({language})")
     print("Проверка текста кнопки ожидание/факт!")
+    assert add_button_text, "Button text is empty"  # Защита от пустого текста
     assert add_button_text == expected_text, f"Текст кнопки не соответствует языку: {add_button_text} != {expected_text}"
 
     # Дополнительно: выводим текст кнопки для отладки
